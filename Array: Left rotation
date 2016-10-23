@@ -1,0 +1,33 @@
+//Array: left rotation problem.
+//In this problem based on the number of rotations you are told to perform, you have to move each element in the array 1 unit to the...
+//left per rotation.
+//Input: n, k, array of size n
+//n= number of elements in the array.
+//k= number of roation your program must perform.
+-------------------------------------------------------------------------------------------------------------------------------------------
+public class Solution {
+
+    public static void main(String[] args) {
+      Scanner in = new Scanner(System.in);
+		int n = in.nextInt();
+		int k = in.nextInt();
+		int a[] = new int[n];
+		for (int a_i = 0; a_i < n; a_i++) {
+			a[a_i] = in.nextInt();
+		}
+		int l = 0;
+		while (l < k) {
+			int first = a[0];
+			for (int i = 1; i < n; i++) {
+				int temp = a[i];
+				a[i - 1] = temp;
+			}
+			a[n - 1] = first;
+			l++;
+		}
+
+		for (int j = 0; j < n; j++) {
+			System.out.print(a[j] + " ");
+		}
+    }
+}
